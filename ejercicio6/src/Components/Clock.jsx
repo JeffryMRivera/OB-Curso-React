@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 
 const Clock = () => {
   const tick = () => {
-    setState({
-      ...state,
-      fecha: new Date(),
-      edad: state.edad + 1,
+    setState((prevState) => {
+      let edad = prevState.edad + 1;
+      return {
+        ...prevState,
+        fecha: new Date(),
+        edad,
+      };
     });
   };
 
